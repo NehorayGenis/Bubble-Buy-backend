@@ -1,0 +1,11 @@
+{
+	"name": "miss-bug",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "nodemon --ignore \"./data\" server.js"
+	},
+	"dependencies": {
+		"cookie-parser": "^1.4.6",
+		"express": "^4.18.1"
+	}
+}
