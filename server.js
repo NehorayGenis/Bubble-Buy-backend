@@ -12,8 +12,6 @@ app.use(express.json())
 //LIST
 app.get("/api/note", (req, res) => {
     const filterBy = req.query
-    console.log("req.query", req.query)
-    //   console.log(filterBy)
     noteService
         .query(filterBy)
         .then((notes) => res.send(notes))
@@ -31,7 +29,6 @@ app.post("/api/note", (req, res) => {
         content,
         author,
     }
-    console.log(note)
     noteService
         .save(note)
         .then((savednote) => res.send(savednote))
@@ -41,7 +38,6 @@ app.post("/api/note", (req, res) => {
 // UPDATE
 app.put("/api/note/:noteId", (req, res) => {
     const { username } = req.cookies
-    console.log("req.body", req.body)
     const { _id, title, content, author, creator, date } = req.body
     if (username !== creator.username) {
         return res.status(500).send("Wrong user")
@@ -86,11 +82,9 @@ app.get("/api/note/:noteId", (req, res) => {
 app.delete("/api/note/:noteId", (req, res) => {
     const { noteId } = req.params
     // const tryingUser = req.cookies.username
-    //   console.log(tryingUser);
     noteService
         .getById(noteId)
         .then((note) => {
-            console.log(note)
             noteService
                 .remove(noteId)
                 .then(() => res.send("Removed!"))

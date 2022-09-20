@@ -1963,7 +1963,6 @@ var Vue = (function (exports) {
                   if (true && check(job)) {
                       continue;
                   }
-                  // console.log(`running:`, job.id)
                   callWithErrorHandling(job, null, 14 /* SCHEDULER */);
               }
           }

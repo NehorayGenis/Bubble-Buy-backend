@@ -8,7 +8,6 @@ export const bugService = {
 }
 const API = 'api/bug/'
 function query(filterBy) {
-  // console.log("public", filterBy)
   return axios.get(API, { params: filterBy }).then((res) => res.data)
 }
 
@@ -24,7 +23,6 @@ function save(bug) {
   if (bug._id) {
     return axios.put(API + bug._id, bug).then((res) => res.data)
   } else {
-    // console.log("here")
     return axios.post(API, bug).then((res) => res.data)
   }
 }

@@ -11,12 +11,10 @@ module.exports = {
 }
 
 function query(filterBy = { txt: '', page: 0 }) {
-  // console.log("private",filterBy)
   // const regex = new RegExp(filterBy.txt, 'i')
   // var filteredNotes = notes.filter(
   //   (note) => regex.test(note.title) || regex.test(note.description)
   // )
-  // console.log("filteredby txt", filteredNotes)
 
   // const startIdx = filterBy.page * PAGE_SIZE
   // filteredNotes = filteredNotes.slice(startIdx, startIdx + PAGE_SIZE)
@@ -38,13 +36,11 @@ function getNotesData() {
 }
 
 function getById(noteId) {
-  console.log(noteId);
   const note = notes.find((note) => note._id === noteId)
   return note ? Promise.resolve(note) : Promise.reject(`Couldn't find ${noteId}`)
 }
 
 function remove(noteId) {
-  console.log('entered to remove');
   const idx = notes.findIndex((note) => note._id === noteId)
   const note = notes.slice(idx, 1)
   notes[i].is_deleted=1
@@ -52,8 +48,6 @@ function remove(noteId) {
 }
 
 function save(note) {
-  // console.log(note)
-
   if (note._id) {
     const idx = notes.findIndex((currNote) => currNote._id === note._id)
     if (idx === -1) return Promise.reject('Could not fint the note')

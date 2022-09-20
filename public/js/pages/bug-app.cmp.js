@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     loadBugs(filterBy) {
-      // console.log("bug-app", this.filterBy)
       bugService.query(this.filterBy).then((bugs) => {
         this.bugs = bugs
       })
